@@ -2,7 +2,7 @@ package Array_.RemoveElem;
 
 public class removeEasyElem {
 }
-class Solution {
+class SolutionEasyElem {
     public int removeElement(int[] nums, int val) {
         int lowIndex = 0;
         int fasetIndex = 0;
