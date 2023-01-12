@@ -1,5 +1,9 @@
 package Array_.RemoveElem;
 
+ /*
+    leetcode :
+  */
+
 public class BackspaceCompare {
     public static boolean backspaceCompare(String s, String t) {
         //
