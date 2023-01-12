@@ -1,7 +1,7 @@
 package Array_.RemoveElem;
 
  /*
-    leetcode :
+    leetcode : https://leetcode.cn/problems/backspace-string-compare/
   */
 
 public class BackspaceCompare {
