@@ -1,10 +1,16 @@
 package Array_.SlidingWindow;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+import java.lang.reflect.GenericDeclaration;
+
 //leetcode 76:https://leetcode.cn/problems/minimum-window-substring/
 public class MinWindow {
 
     public static void main(String[] args) {
-        String p = minWindow("ADOBECODEBANC", "ABC");
+        String p = minWindow3("ADOBECODEBANC", "ABC");
+        //b aaa c
+        //ADOBOOCOOBOOCA
         System.out.println(p);
     }
 
@@ -44,5 +50,67 @@ public class MinWindow {
             }
         }
         return min == Integer.MAX_VALUE ? "" : s.substring(start, start + min);
+    }
+
+    public static String minWindow2(String s, String t) {
+        if (s.length() < t.length()) {
+            return "";
+        }
+        int[] need = new int[128];
+        int start = 0;
+        int min = Integer.MAX_VALUE;
+        int count = t.length();
+        for (int i = 0; i < t.length(); i++) {
+            need[t.charAt(i)]++;
+        }
+        for (int i = 0,  j = 0; j < s.length(); j++) {
+            if (need[s.charAt(j)]-- > 0) {
+                count--;
+            }
+            if (count == 0) {
+                while (need[s.charAt(i)] < 0) {
+//                    need[s.charAt(i++)]++;
+                    i++;
+                }
+                if (j - i + 1 < min) {
+                    start = i;
+                    min = j - i + 1;
+                }
+                need[s.charAt(i++)]++;
+                count++;
+            }
+        }
+        return min == Integer.MAX_VALUE ? "" : s.substring(start, start + min);
+    }
+
+    //暴力解复杂度：O(n * n)
+    public static String minWindow3(String s, String t) {
+        int min = Integer.MAX_VALUE;
+        int start = 0;
+        int[] need = new int[128];
+
+        int count = t.length();
+        for (int i = 0; i < s.length(); i++) {
+
+            for (int k = 0; k < t.length(); k++) {
+                need[t.charAt(k)]++;
+            }
+
+            for (int j = i; j < s.length(); j++) {
+                if (need[s.charAt(j)]> 0) {
+                    need[s.charAt(j)]--;
+                    count--;
+                }
+                if (count == 0) {
+                    if (min > j - i + 1) {
+                        start = i;
+                        min = j - i + 1;
+                        System.out.println(s.substring(start, start + min));
+                    }
+                }
+            }
+            count = t.length();
+        }
+        return s.substring(start, start + min);
     }
 }
