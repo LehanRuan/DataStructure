@@ -19,7 +19,7 @@ public class generateMatrix {
 
             //从左到右
             for (; j < n - end; j++) {
-                result[startx][j] = ++num;
+                result[i][j] = ++num;
             }
 
             //从上到下

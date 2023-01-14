@@ -7,6 +7,7 @@ public class TotalFruit {
         System.out.println(totalFruit1(new int[]{3,3,3,1,2,1,1,2,3,3,4}));
     }
 
+    //滑动窗口版本
     public static int totalFruit(int[] fruits) {
         int result = Integer.MIN_VALUE;
         //使用数组去存储，下标代表种类，下标对应的值是种类的个数
@@ -23,6 +24,7 @@ public class TotalFruit {
         return result;
     }
 
+    //暴力版本
     public static int totalFruit1(int[] fruits) {
         int result = Integer.MIN_VALUE;
         //使用数组去存储，下标代表种类，下标对应的值是种类的个数
@@ -34,7 +36,7 @@ public class TotalFruit {
                     total++;
                 }
                 if (total > 2) {
-                    result = result > j - i  ? result : j - i ;
+                    result = result > j - i  ? result : j - i  ;
                     total = 0;
                     break;
                 }
