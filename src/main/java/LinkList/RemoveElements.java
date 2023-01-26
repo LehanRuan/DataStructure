@@ -1,5 +1,7 @@
 package LinkList;
 
+//leetcode 203：https://leetcode.cn/problems/remove-linked-list-elements/
+
 public class RemoveElements {
     public ListNode removeElements(ListNode head, int val) {
         if(head == null) {
@@ -25,4 +27,6 @@ public class RemoveElements {
         }
         return dummyNode.next;
     }
+
+    //总结：删除元素时使用虚拟头节点比较好
 }
