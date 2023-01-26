@@ -23,7 +23,6 @@ public class RemoveElements {
             //让cur指向下一个位置
             cur = temp;
         }
-
         return dummyNode.next;
     }
 }
