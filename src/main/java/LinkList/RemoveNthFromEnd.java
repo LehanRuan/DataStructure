@@ -1,6 +1,6 @@
 package LinkList;
 
-// leetcode address: https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
+// leetcode address: https://leetcode.c\n/problems/remove-nth-node-from-end-of-list/
 public class RemoveNthFromEnd {
 
     /*思路：
